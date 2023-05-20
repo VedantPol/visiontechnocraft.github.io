@@ -1,8 +1,8 @@
 ---
-import Navigation from '../components/Navigation.astro';
-import logoimg from '../../public/logo.webp';
-import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-navbar";
+import logoimg from '/logo.webp';
+
 ---
+
 <html lang="en">
 	<head>
 		<style>
@@ -13,27 +13,57 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-na
 				padding: 0;
 				background-color: white;
 			}
-			li,a,button {
+			body
+			{
+				background-color: white;
+				min-height: 200vh;
+			}
+			header li,a {
+				position: relative;
 				font-family: "Nunito",system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 				font-weight: 500;
 				font-size: 16px;
 				color: black;
 				text-decoration: none;
+				transition: 0.3s;
+				margin-left: 5px;
+			}
+			.sticky{
+				position: fixed;
+				top:0;
+				left:0;
+				width: 100%;
+				box-shadow: 0 0 2rem 0 rgba(0,0,0,0.2);
 			}
 			header {
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
 				padding: 30px,10%;
+				transition: 0.6s;
+				width: 100%;
+				top: 0;
+				left: 0;
+				z-index: 100;
 			}
-			.logo{
+			header .logo{
+				position: relative;
 				cursor: pointer;
-				width: 400px;
+				width: 200px;
 				height: auto;
-				padding: 10px;
-
+				padding-top: 10px;
+				margin-left: 100px;
+				margin-bottom: 10px;
+				transition: 0.6s;
 			}
-			li:hover a{
+			header ul{
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		
+			li:hover a, ul li a.active{
 				color:rgb(72, 185, 255);
 			}
 			.nav__links{
@@ -43,11 +73,26 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-na
 				display: inline-block;
 				padding: 0px 20px;
 			}
-			.cta{
-				padding-right: 5px;
+			.banner{
+				position: relative;
+				height: 100vh;
+				width:100%;
+				background: url(../../public/cctv.jpg);
+				background-size: cover;
+			}
+			section{
+				min-height: 100vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: white;
+				font-size: 100px;
+				color: aquamarine;
+				font-weight: 700;
 			}
 
 		</style>
+		
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
@@ -55,21 +100,27 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems } from "astro-na
 		<title>VisionTechnocraft</title>
 	</head>
 	  <body>
-        <header>
+        <header class="sticky">
 			<img class="logo" src={logoimg} alt="logo">
 			<nav>
 				<ul class="nav__links">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Features</a></li>
-					<li><a href="#">About Us</a></li>
-					<li><a href="#">Testimonials</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">Contact</a></li>
+					<li><a href="#home" class="active">Home</a></li>
+					<li><a href="#features">Features</a></li>
+					<li><a href="#about">About Us</a></li>
+					<li><a href="#testi">Testimonials</a></li>
+					<li><a href="#blog">Blog</a></li>
+					<li><a href="#contact">Contact</a></li>
 					<!-- <li><a href="#">Contact</a></li> -->
 				</ul>
 			</nav>
 		</header>
-		<top>
+		<section id="home" class="banner">
+		</section>
+		<section id="features">Features</section>
+		<section id="about">About us</section>
+		<section id="testi">Testimonials</section>
+		<section id="blog">Blog</section>
+		<section id="contact">Contact</section>
       </body>
 	  
 </html>
