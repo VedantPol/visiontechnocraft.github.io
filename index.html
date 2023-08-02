@@ -634,7 +634,7 @@
             </div>
             <div class="row">
               <div class="col-sm-6 col-sm-offset-3">
-                <form id="contactForm" role="form" method="post" action="./php/contact.php">
+                <form id="contactForm" role="form" method="post" onsubmit="sendEmail();reset();false">
                   <div class="form-group">
                     <label class="sr-only" for="name">Name</label>
                     <input class="form-control" type="text" id="name" name="name" placeholder="Your Name*" required="required" data-validation-required-message="Please enter your name."/>
@@ -647,7 +647,7 @@
                   </div>
                   <div class="form-group">
                     <label class="sr-only" for="name">Phone Number</label>
-                    <input class="form-control" type="text" id="name" name="name" placeholder="Your Phone Number*" required="required" data-validation-required-message="Please enter your phone number."/>
+                    <input class="form-control" type="text" id="phone" name="phone" placeholder="Your Phone Number*" required="required" data-validation-required-message="Please enter your phone number."/>
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="form-group">
@@ -728,5 +728,22 @@
     <script src="./lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
     <script src="./js/plugins.js"></script>
     <script src="./js/main.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+      function sendEmail(){
+          Email.send({
+          Host : "smtp.elasticemail.com",
+          Username : "polvedant11@gmail.com",
+          Password : "053FCFD229C7A3C52C1A53B717ABB314DA68",
+          To : 'polvedant11@gmail.com',
+          From : 'polvedant11@gmail.com',
+          Subject : "VisionTechnocraft Inquiry",
+          Body : "body"
+      }).then(
+        message => alert(message)
+      );
+    console.log("clicked")
+      }
+    </script>
   </body>
 </html>
