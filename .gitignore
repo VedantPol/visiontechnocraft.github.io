@@ -3,6 +3,7 @@ dist/
 # generated types
 .astro/
 .vscode/
+ai_images/
 # dependencies
 node_modules/
 ppio/
